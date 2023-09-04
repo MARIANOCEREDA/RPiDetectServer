@@ -7,6 +7,8 @@ import { errorHandler, logErrors } from './middlewares/error.handler.js';
 
 const app = express()
 
+app.use(express.json())
+
 // Initialize Router
 appRouter(app)
 
