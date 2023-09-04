@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { sqlize } from '../sequelize/sequelize.js';
 import createLogger from '../config/logger/logger.js';
+import createError from 'http-errors'
 
 const logger = createLogger('package-service')
 
@@ -43,7 +44,7 @@ class PackageService{
         logger.debug("Package Found: " + packages)
 
         if(packages){
-            throw createError(401, "Package already exists found.")
+            throw createError(409, "Package with number "+ packageData.packageNumber +" already exists.")
         }
 
         const created = await this.packageModel.create(packageData)
