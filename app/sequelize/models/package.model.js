@@ -6,8 +6,6 @@ const logger = createLogger('package-model')
 
 const PACKAGE_TABLE_NAME = config.mysql.dbPackageTableName
 
-logger.debug(PACKAGE_TABLE_NAME)
-
 const PackageModel = {
 
     id:{

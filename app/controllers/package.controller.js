@@ -27,7 +27,23 @@ class PackageController{
 
     }
 
-    findOne = async (request, response, next) => {
+    findOneByPackageNumber = async (request, response, next) => {
+
+        try{
+
+            const packageNumber = request.params.packageNumber
+
+            const foundPackage = await this.packageService.findOne(packageNumber)
+
+            if(foundPackage){
+                return response.status(200).json({package:foundPackage})
+            }
+
+        }catch(error){
+            next(error)
+        }
+
+        next()
 
     }
 

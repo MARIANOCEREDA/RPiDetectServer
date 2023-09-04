@@ -13,7 +13,21 @@ class PackageService{
         this.packageModel = this.models.Package
     }
 
-    findOne = async () => {
+    findOne = async (packageNumber) => {
+
+        const pack = await this.packageModel.findOne({
+            where:{packageNumber:packageNumber}
+        })
+
+        if(!pack){
+            throw createError(404, 'Package not found.')
+        }
+
+        if(pack === null){
+            throw createError(500, 'Not able to connect to database')
+        }
+
+        return pack
 
     }
 
@@ -56,8 +70,6 @@ class PackageService{
         return created
 
     }
-
-    
 
 }
 
