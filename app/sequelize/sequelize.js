@@ -19,6 +19,7 @@ const URI = `mysql://${USERNAME}:${PASSWORD}@${host}:${port}/${dbName}`;
 
 logger.info("Database name: " + config.mysql.dbName)
 logger.info("Package table name: " + config.mysql.dbPackageTableName)
+logger.info("Package table name: " + config.mysql.dbUsername)
 
 const options = {
     dialect:'mysql',

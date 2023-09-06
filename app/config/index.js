@@ -3,6 +3,6 @@ dotenv.config();
 
 const env = process.env.NODE_ENV || 'development';
 
-import config from './dev.js'
+import config from './prod.js'
 
 export default config;

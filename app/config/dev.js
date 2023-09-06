@@ -4,7 +4,7 @@ dotenv.config();
 
 export default {
     env:'development',
-    serverPort:process.env.SERVER_PORT || 3001,
+    serverPort:process.env.PORT || 3001,
     mysql:{
         port:3306,
         dbName:'tesis',
