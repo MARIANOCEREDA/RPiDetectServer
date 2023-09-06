@@ -3,7 +3,7 @@ dotenv.config();
 
 export default {
     env:'production',
-    serverPort:process.env.PORT || 3001,
+    serverPort:process.env.SERVER_PORT || 5001,
     mysql:{
         port:3306,
         dbName:'sql10644878',
