@@ -53,8 +53,6 @@ class PackageController{
 
             const packageData = request.body
 
-            logger.debug("Create package incomming data: " + packageData)
-
             const createdPackage = await this.packageService.create(packageData)
 
             return response.status(200).json({package:createdPackage})

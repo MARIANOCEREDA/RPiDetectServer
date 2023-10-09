@@ -70,6 +70,8 @@ class PackageService{
             throw createError(500, "Error when trying to create package.")
         }
 
+        logger.info("Created package: " + JSON.stringify(created))
+
         return created
     }
 
