@@ -27,6 +27,8 @@ class PackageService{
             throw createError(500, 'Not able to connect to database')
         }
 
+        logger.info("Package Found: " + JSON.stringify(pack))
+
         return pack
 
     }
@@ -36,6 +38,7 @@ class PackageService{
         const packages = await this.packageModel.findAll()
 
         if(!packages){
+            logger.info("Not packages were found.")
             throw createError(404, 'Packages not found.')
         }
 
@@ -43,21 +46,21 @@ class PackageService{
             throw createError(500, 'Not able to connect to database')
         }
 
+        logger.info("Number of packages found: " + packages.length)
+
         return packages
         
     }
 
     create = async (packageData) => {
 
-        logger.debug("Incomming Package data: " + packageData)
 
         const packages = await this.packageModel.findOne({
             where:{ packageNumber:packageData.packageNumber }
         })
 
-        logger.debug("Package Found: " + packages)
-
         if(packages){
+            logger.info("Package Found: " + JSON.stringify(packages))
             throw createError(409, "Package with number "+ packageData.packageNumber +" already exists.")
         }
 
@@ -68,8 +71,10 @@ class PackageService{
         }
 
         return created
-
     }
+
+
+
 
 }
 

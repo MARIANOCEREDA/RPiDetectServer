@@ -20,6 +20,7 @@ app.use(logErrors)
 app.use(errorHandler)
 
 const port = config.serverPort
+
 // Server listen
 app.listen(port, ()=>{
     console.log("Server listening to port: " + port);
